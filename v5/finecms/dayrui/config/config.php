@@ -65,3 +65,4 @@ $config['time_reference']				= 'local';
 $config['rewrite_short_tags']			= FALSE;
 $config['proxy_ips']					= '';
 $config['standardize_newlines']			= TRUE;
+$config['is_post_xss_data']			= TRUE;
