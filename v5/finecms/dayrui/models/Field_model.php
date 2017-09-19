@@ -11,14 +11,6 @@ class Field_model extends M_Model {
     public $link;
 
     /**
-     * 字段模型类
-     */
-    public function __construct() {
-        parent::__construct();
-
-    }
-
-    /**
      * 所有数据
      *
      * @return	void

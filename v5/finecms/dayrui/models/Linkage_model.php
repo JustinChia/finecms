@@ -2,19 +2,10 @@
 
 if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-
-	
 class Linkage_model extends M_Model {
 
 	private	$categorys;
-	
-	/*
-	 * 联动菜单模型类
-	 */
-    public function __construct() {
-        parent::__construct();
-    }
-	
+
 	/**
 	 * 联动菜单数据
 	 *

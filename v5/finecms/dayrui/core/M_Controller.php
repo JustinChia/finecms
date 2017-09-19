@@ -1312,8 +1312,6 @@ class M_Controller extends CI_Controller {
         foreach ($field as $t) {
             if (!IS_ADMIN && !$t['ismember']) {
                 continue;
-            } elseif (!IS_ADMIN && @in_array((int)$this->member['groupid'], $t['setting']['show_member'])) {
-                continue;
             } elseif (IS_ADMIN && $this->member['adminid'] > 1
                 && @in_array($this->member['adminid'], $t['setting']['show_admin'])) {
                 continue;

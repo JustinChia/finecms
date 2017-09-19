@@ -47,26 +47,11 @@ class Member_model extends M_Model {
             return NULL;
         }
 
-        $data['markrule'] = $data['groupid'];
-
         return $data;
     }
 
-    /**
-     * 会员权限标识
-     */
     public function get_markrule($uid) {
-
-        if (!$uid) {
-            return 0;
-        }
-
-        $data = $this->db->where('uid', (int)$uid)->limit(1)->get('member')->row_array();
-        if (!$data) {
-            return 0;
-        }
-
-        return $data['groupid'];
+        return 0;
     }
 
 
@@ -95,9 +80,7 @@ class Member_model extends M_Model {
             return NULL;
         }
 
-        $group = $this->ci->get_cache('member', 'group');
         $data['uid'] = $uid;
-        $data['groupname'] = $group[$data['groupid']]['name'];
         $data['avatar_url'] = '';
         if (defined('UCSSO_API')) {
             $data['avatar_url'] =  ucsso_get_avatar($uid);
@@ -130,47 +113,8 @@ class Member_model extends M_Model {
         return $data['username'];
     }
 
-    /**
-     * 会员组续费/升级
-     */
     public function upgrade($uid, $groupid, $limit, $time = 0) {
 
-        if (!$uid || !$groupid || !$limit) {
-            return FALSE;
-        }
-
-        $time = max($time, SYS_TIME);
-
-        // 得到增加的时间戳
-        switch ($limit) {
-
-            case 1: // 月
-                $time = strtotime('+1 month', $time);
-                break;
-
-            case 2: // 半年
-                $time = strtotime('+6 month', $time);
-                break;
-
-            case 3: // 年
-                $time = strtotime('+1 year', $time);
-                break;
-
-            case 4: // 永久
-                $time = 4294967295;
-                break;
-        }
-
-        // 更新至数据库
-        $this->db->where('uid', $uid)->update('member', array(
-            'groupid' => $groupid,
-            'overdue' => $time,
-        ));
-
-        // 发送通知
-        $this->add_notice($uid, 1, fc_lang('恭喜亲，您的会员组续费成功'));
-
-        return $time;
     }
 
     /**
@@ -777,12 +721,8 @@ class Member_model extends M_Model {
                     $select->where('uid IN (select uid from `'.$this->db->dbprefix('member_data').'` where `'.$data['field'].'` LIKE "%'.urldecode($data['keyword']).'%")');
                 }
             }
-            // 查询会员组
-            isset($data['groupid']) && $data['groupid'] && $select->where('groupid', (int)$data['groupid']);
         }
 
-        // 判断groupid
-        !isset($data['groupid']) && $_GET['groupid'] && $select->where('groupid', (int)$_GET['groupid']);
 
         return $data;
     }
