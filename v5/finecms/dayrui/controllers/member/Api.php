@@ -14,7 +14,7 @@ class Api extends M_Controller {
         !$this->uid && $this->admin_msg(fc_lang('会话超时，请重新登录'));
 
         // 参数判断
-        $dirname = $this->input->get('module');
+        $dirname = dr_safe_replace($this->input->get('module'));
         !$dirname && $this->admin_msg(fc_lang('模型module参数不存在'));
 
         // 站点选择
@@ -146,7 +146,6 @@ class Api extends M_Controller {
      */
     public function category() {
 
-        $dir = $this->input->get('module');
         $pid = (int)$this->input->get('parent_id');
         $json = array();
         $category = $this->get_cache('category-'.SITE_ID);
@@ -174,7 +173,7 @@ class Api extends M_Controller {
 
         $pid = (int)$this->input->get('parent_id');
         $json = array();
-        $code = $this->input->get('code');
+        $code = $this->input->get('code', true);
         $linkage = $this->get_cache('linkage-'.SITE_ID.'-'.$code);
 
         foreach ($linkage as $v) {
@@ -192,7 +191,7 @@ class Api extends M_Controller {
     public function field() {
 
         $id = (int)$this->input->post('id');
-        $type = $this->input->post('type');
+        $type = dr_safe_replace($this->input->post('type', true));
 
         $this->load->model('field_model');
         $this->relatedid = $this->input->post('relatedid');
