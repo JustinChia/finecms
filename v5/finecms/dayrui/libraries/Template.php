@@ -1118,7 +1118,7 @@ class Template {
                     }
                 }
 
-                $fields = $this->module[$system['module']]['field']; // 主表的字段
+                $fields = $this->ci->module[$system['module']]['field']; // 主表的字段
                 $where[] = array( 'adj' => '', 'name' => 'status', 'value' => 9);
                 $where = $this->_set_where_field_prefix($where, $tableinfo[$table]['field'], $table, $fields); // 给条件字段加上表前缀
                 $system['field'] = $this->_set_select_field_prefix($system['field'], $tableinfo[$table]['field'], $table); // 给显示字段加上表前缀
