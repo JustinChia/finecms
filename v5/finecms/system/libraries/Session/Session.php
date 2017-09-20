@@ -105,12 +105,12 @@ class CI_Session {
 		$class = new $class($this->_config);
 		if ($class instanceof SessionHandlerInterface)
 		{
-			if (is_php('5.4'))
-			{
-				session_set_save_handler($class, TRUE);
-			}
-			else
-			{
+			//if (is_php('5.4'))
+			//{
+				//session_set_save_handler($class, TRUE);
+			//}
+			//else
+			//{
 				session_set_save_handler(
 					array($class, 'open'),
 					array($class, 'close'),
@@ -121,7 +121,7 @@ class CI_Session {
 				);
 
 				register_shutdown_function('session_write_close');
-			}
+			//}
 		}
 		else
 		{
