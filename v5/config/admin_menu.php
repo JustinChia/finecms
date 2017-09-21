@@ -272,6 +272,11 @@ return array(
                         'uri' => 'home/helponline',
                         'icon' => 'fa fa-book',
                     ),
+                    array(
+                        'name' => '我要提问',
+                        'url' => 'http://www.dayrui.com/index.php?s=member&app=bbs&c=home&m=add&catid=48',
+                        'icon' => 'fa fa-edit',
+                    ),
                 )
             ),
 

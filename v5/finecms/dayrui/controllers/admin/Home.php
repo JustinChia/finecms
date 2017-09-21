@@ -156,7 +156,10 @@ class Home extends M_Controller {
                         $n['id'] = $i.'-'.$j.'-'.$k;
                         $n['pid'] = $i.'-'.$j;
                         $n['tid'] = $i;
-                        $n['url'] = $this->duri->uri2url($n['uri']);
+                        if ($n['uri']) {
+                            $n['url'] = $this->duri->uri2url($n['uri']);
+                        }
+
                         $link[] = $n;
                     }
                 }
