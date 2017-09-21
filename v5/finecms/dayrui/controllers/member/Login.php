@@ -149,7 +149,7 @@ class Login extends M_Controller {
 						$this->member_msg(fc_lang('验证码不正确，请重新发送验证码'), dr_member_url('login/find'));
 					}
 
-					$password1 = $this->input->post('password1');
+					$password1 = $this->input->post('password');
 					$password2 = $this->input->post('password2');
 					if ($password1 != $password2) {
 						$error = fc_lang('两次密码输入不一致');
