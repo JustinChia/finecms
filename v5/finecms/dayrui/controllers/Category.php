@@ -83,6 +83,9 @@ class Category extends M_Controller {
 
         list($parent, $related) = $this->_related_cat($category, $id);
 
+        if ($cat['mid']) {
+            $this->template->module($cat['mid']);
+        }
         $this->template->assign(dr_category_seo($cat, max(1, (int)$this->input->get('page'))));
         $this->template->assign(array(
             'cat' => $cat,

@@ -53,6 +53,9 @@ class Search extends M_Controller {
 			'search_total' => $total,
 			'search_sql' => urlencode($sql),
 		));
+        if ($category[$catid]['mid']) {
+            $this->template->module($category[$catid]['mid']);
+        }
 		$this->template->display($catid && $category[$catid]['setting']['template']['search'] ? $category[$catid]['setting']['template']['search'] : 'search.html');
     }
 

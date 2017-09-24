@@ -116,6 +116,10 @@ class Show extends M_Controller {
             'urlrule' => dr_show_url( $data, '{page}'),
         ));
 
+        if ($cat['mid']) {
+            $this->template->module($cat['mid']);
+        }
+
         $tpl = isset($data['template']) && strpos($data['template'], '.html') !== FALSE ? $data['template'] : ($cat['setting']['template']['show'] ? $cat['setting']['template']['show'] : 'show.html');
 
         $this->template->display($tpl);

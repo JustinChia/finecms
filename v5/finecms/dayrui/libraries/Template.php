@@ -173,7 +173,7 @@ class Template {
             return NULL;
         }
 
-        $module = $this->ci->dir ? $this->ci->dir : MOD_DIR;
+        $module = $dir;
 
         // 默认模板目录
         $this->_module_root_array = array(
