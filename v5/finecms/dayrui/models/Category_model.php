@@ -399,6 +399,9 @@ class Category_model extends M_Model {
                     $c['domain'] = '';
                     $c['setting'] = dr_string2array($c['setting']);
                     $c['permission'] = '';
+                    if ($c['tid'] != 2) {
+                        $c['setting']['linkurl'] = "";
+                    }
                     $c['url'] = isset($c['setting']['linkurl']) && $c['setting']['linkurl'] ? $c['setting']['linkurl'] : dr_category_url($c, $siteid);
                     $CAT[$c['id']] = $c;
                     $CAT_DIR[$c['dirname']] = $c['id'];
