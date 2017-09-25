@@ -86,7 +86,7 @@ class Block extends M_Controller {
 		);
 		$this->template->assign(array(
 			'menu' => $this->get_menu_v3(array(
-				fc_lang('自定义页面') => array('admin/block/index', 'file'),
+				fc_lang('自定义内容') => array('admin/block/index', 'file'),
 				fc_lang('添加') => array('admin/block/add', 'plus'),
 			)),
 			'type' => array(
