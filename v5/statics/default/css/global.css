@@ -1156,3 +1156,9 @@ body {
         overflow: hidden !important;;
     }
 }
+.article-detail-content {
+    overflow: hidden;
+}
+.article-detail-content img {
+    max-width: 95%;
+}
