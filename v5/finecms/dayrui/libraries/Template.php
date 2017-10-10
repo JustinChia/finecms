@@ -1368,7 +1368,11 @@ class Template {
 
         $this->ci->pagination->initialize($page);
 
-        return $this->ci->pagination->dr_links();
+        if (method_exists($this->ci->pagination, 'dr_links')) {
+            return $this->ci->pagination->dr_links();
+        }
+
+        return $this->ci->pagination->create_links();
     }
 
     // 条件子句格式化

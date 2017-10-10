@@ -662,6 +662,9 @@ class M_Controller extends CI_Controller {
 
         $this->pagination->initialize($config);
 
+        if (method_exists($this->pagination, 'dr_links')) {
+            return $this->pagination->dr_links();
+        }
         return $this->pagination->create_links();
     }
 
