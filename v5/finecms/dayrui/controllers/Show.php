@@ -86,7 +86,12 @@ class Show extends M_Controller {
             $this->goto_404_page(fc_lang('您暂时无法访问'));
         }
 
-
+        // 驗證url重複
+        $myurl = SITE_URL.$data['url'];
+        if ($myurl != dr_now_url()) {
+            header('Location: '.$myurl, TRUE, 301);
+            exit;
+        }
 
         // 格式化输出自定义字段
         $fields = $this->module[$this->dir]['field'];
