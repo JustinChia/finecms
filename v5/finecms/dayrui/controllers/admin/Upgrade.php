@@ -25,7 +25,7 @@ class Upgrade extends M_Controller {
     // 版本列表
     public function vlist() {
 
-        $data = dr_catcher_data('http://v5.finecms.net/index.php?s=api&c=finecms&m=index&my='.DR_VERSION);
+        $data = dr_catcher_data('http://api.poscms.net/index.php?s=api&c=finecms&m=index&my='.DR_VERSION);
 
         if (!$data) {
             exit('<font color="red">无法获取到版本信息</font>');

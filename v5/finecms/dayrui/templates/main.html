@@ -2,7 +2,7 @@
 <script type="text/javascript">
     $(function(){
         // 检查是否更新
-        $.ajax({type: "GET", url:'http://v5.finecms.net/index.php?s=api&c=finecms&m=version&my={DR_VERSION}', dataType:'jsonp',jsonp:"callback",
+        $.ajax({type: "GET", url:'http://api.poscms.net/index.php?s=api&c=finecms&m=version&my={DR_VERSION}', dataType:'jsonp',jsonp:"callback",
             success: function (data) {
                 $("#finecms_version").html(data.html);
             }
