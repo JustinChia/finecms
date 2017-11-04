@@ -24,6 +24,10 @@ class Install extends CI_Controller {
         }
         $this->load->library('dcache');
         $this->dcache->set('install', TRUE);
+        if (strpos(DR_URI, '/') !== 0) {
+            header('Content-Type: text/html; charset=utf8');
+            show_error('FineCMS禁止子目录安装，请放置在网站根目录安装', 404);
+        }
     }
 
     /**
