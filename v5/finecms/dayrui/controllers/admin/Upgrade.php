@@ -22,16 +22,21 @@ class Upgrade extends M_Controller {
         $this->template->display('upgrande.html');
     }
 
-    // 版本列表
+// 版本列表
     public function vlist() {
 
-        $data = dr_catcher_data('http://api.poscms.net/index.php?s=api&c=finecms&m=index&my='.DR_VERSION);
+        $data = dr_catcher_data('http://www.poscms.net/version.php?cms=poscms');
 
         if (!$data) {
-            exit('<font color="red">无法获取到版本信息</font>');
+            exit('<p style="color:red;"> 暂时无法获取到服务器端版本信息 </p>');
         }
 
-        exit($data);
+        if (strlen($data) > 20) {
+            exit('<p style="color:red;"> 返回数据不规范，请联系官方！ </p>');
+        }
+
+        exit('<p style="color:blue;"> 服务器程序最近更新时间为： '.$data.'</p>');
+
     }
 
 
