@@ -1,14 +1,4 @@
 {template "nheader.html"}
-<script type="text/javascript">
-    $(function(){
-        // 检查是否更新
-        $.ajax({type: "GET", url:'http://api.poscms.net/index.php?s=api&c=finecms&m=version&my={DR_VERSION}', dataType:'jsonp',jsonp:"callback",
-            success: function (data) {
-                $("#finecms_version").html(data.html);
-            }
-        });
-    });
-</script>
 
 <!-- BEGIN PAGE BAR -->
 <div class="page-bar">
@@ -94,7 +84,7 @@
             <div class="portlet-title">
                 <div class="caption">
                     <i class="fa fa-user font-green-sharp" style="font-size: 20px;"></i>
-                    <span class="caption-subject font-green-sharp  ">{fc_lang('官方')}</span>
+                    <span class="caption-subject font-green-sharp  ">{fc_lang('作者')}</span>
                 </div>
             </div>
             <div class="portlet-body">
@@ -105,16 +95,20 @@
                             <td><a href="http://www.dayrui.com/index.php?s=gathering&id=1" target="_blank">李睿</a></td>
                         </tr>
                         <tr>
+                            <td class="mleft" align="right">{fc_lang('软件介绍')}：</td>
+                            <td><a href="http://www.finecms.ne/" target="_blank">www.finecms.net</a> </td>
+                        </tr>
+                        <tr>
                             <td class="mleft" align="right">{fc_lang('交流论坛')}：</td>
                             <td><a href="http://www.finebug.com/finecms" target="_blank">www.finebug.com</a> </td>
                         </tr>
                         <tr>
                             <td class="mleft" align="right">{fc_lang('使用手册')}：</td>
-                            <td><a href="http://help.finecms.net" target="_blank">help.finecms.net</a> </td>
+                            <td><a href="http://www.finecms.net/#doc" target="_blank">www.finecms.net</a> </td>
                         </tr>
                         <tr>
                             <td class="mleft" align="right">{fc_lang('开发手册')}：</td>
-                            <td><a href="http://www1.dayrui.com/dev-doc/" target="_blank">www.finecms.net</a> </td>
+                            <td><a href="https://codeigniter.org.cn/user_guide/" target="_blank">codeigniter.org.cn</a> </td>
                         </tr>
                         <tr>
                             <td class="mleft" align="right">{fc_lang('QQ用户群')}：</td>
