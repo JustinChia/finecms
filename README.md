@@ -8,10 +8,6 @@ FineCMS网站管理系统（简称公益版）是一款基于PHP+MySql+CI框架�
 
 
 
-**帮助手册**
-
-http://help.finecms.net
-
 
 **官方网站**
 
