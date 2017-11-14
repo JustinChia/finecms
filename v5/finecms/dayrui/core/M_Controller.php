@@ -92,10 +92,8 @@ class M_Controller extends CI_Controller {
             $uri = isset($_SERVER['HTTP_X_REWRITE_URL']) && trim($_SERVER['REQUEST_URI'], '/') == SELF ? trim($_SERVER['HTTP_X_REWRITE_URL'], '/') : ($_SERVER['REQUEST_URI'] ? trim($_SERVER['REQUEST_URI'], '/') : '');
             if ($orthers && DOMAIN_NAME != $this->site_info[$siteid]['SITE_DOMAIN'] && in_array(DOMAIN_NAME, $orthers)) {
                 // 判断当前域名为“其他域名”
-
                 // 301 转向开启
                 defined('SITE_URL_301') && SITE_URL_301 && redirect(dr_http_prefix($this->site_info[$siteid]['SITE_DOMAIN'].'/'.$uri), '', '301');
-
                 $this->site_info[$siteid]['SITE_PC'] = $this->site_info[$siteid]['SITE_URL'] = dr_http_prefix(DOMAIN_NAME.'/');
 
             } elseif (isset($this->site_info[$siteid]['SITE_MOBILE']) && $this->site_info[$siteid]['SITE_MOBILE']) {
@@ -175,7 +173,6 @@ class M_Controller extends CI_Controller {
         date_default_timezone_set('Etc/GMT'.(SITE_TIMEZONE > 0 ? '-' : '+').abs(SITE_TIMEZONE)); // 设置时区
 
         $this->load->model('system_model');
-
 
         $this->load->model('member_model'); // 加载会员模型
 
