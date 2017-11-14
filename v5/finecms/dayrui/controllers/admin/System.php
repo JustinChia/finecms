@@ -24,6 +24,7 @@ class System extends M_Controller {
                 'SYS_DEBUG',
                 'SYS_AUTO_CACHE',
                 'SYS_CAT_MODULE',
+                'SYS_HTTPS',
                 'SYS_LOG',
                 'SITE_ADMIN_CODE',
                 'SITE_ADMIN_PAGESIZE',

@@ -1559,7 +1559,7 @@ function dr_field_form($id, $value = '', $html = '{value}') {
 }
 
 function dr_http_prefix($url) {
-    return'http://'.$url;
+    return SYS_HTTPS  ? 'https://'.$url : 'http://'.$url;
 }
 
 

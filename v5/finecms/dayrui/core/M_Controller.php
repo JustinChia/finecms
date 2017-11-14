@@ -55,6 +55,14 @@ class M_Controller extends CI_Controller {
         // 全局化站点变量
         $config1 = require WEBPATH.'config/system.php'; // 加载网站系统配置文件
         !$config1['SYS_THUMB_DIR'] && $config1['SYS_THUMB_DIR'] = 'uploadfile/thumb';
+
+        // https模式
+        if (isset($config1['SYS_HTTPS'])) {
+            define('SYS_HTTPS', intval($config1['SYS_HTTPS']));
+        } else {
+            define('SYS_HTTPS', 0);
+        }
+
         $this->load->library('session');
         $domain = require WEBPATH.'config/domain.php'; // 加载站点域名配置文件
         $sitecfg = directory_map(WEBPATH.'config/site/'); // 加载全部站点的配置文件

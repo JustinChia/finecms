@@ -87,9 +87,10 @@ class Show extends M_Controller {
         }
 
         // 驗證url重複
-        $myurl = SITE_URL.ltrim($data['url'], '/');
-        if ($myurl != dr_now_url()) {
-            header('Location: '.$myurl, TRUE, 301);
+        $murl = ltrim($data['url'], '/');
+        $nurl =  ltrim($_SERVER['REQUEST_URI'] ? $_SERVER['REQUEST_URI'] : $_SERVER['PHP_SELF'], '/');
+        if (strlen($murl) != strlen($nurl) || $nurl != $murl) {
+            header('Location: '.SITE_URL.$murl, TRUE, 301);
             exit;
         }
 

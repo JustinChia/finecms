@@ -48,11 +48,20 @@ function dr_to_key() {
 
                 <div class="tab-pane {if $page==0}active{/if}" id="tab_0">
                     <div class="form-body">
+
                         <div class="form-group">
                             <label class="col-md-2 control-label">{fc_lang('调试器')}：</label>
                             <div class="col-md-9">
                                 <input type="checkbox" name="data[SYS_DEBUG]" value="TRUE" {if $data['SYS_DEBUG']}checked{/if} data-on-text="{fc_lang('开启')}" data-off-text="{fc_lang('关闭')}" data-on-color="success" data-off-color="danger" class="make-switch" data-size="small">
                                 <span class="help-block">{fc_lang('用于后台查看程序和SQL执行详情')}</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">{fc_lang('HTTPS模式')}：</label>
+                            <div class="col-md-9">
+                                <input type="checkbox" name="data[SYS_HTTPS]" value="TRUE" {if $data['SYS_HTTPS']}checked{/if} data-on-text="{fc_lang('开启')}" data-off-text="{fc_lang('关闭')}" data-on-color="success" data-off-color="danger" class="make-switch" data-size="small">
+                                <span class="help-block">{fc_lang('开启前需要保证服务器已经支持https协议，并且能够正常访问本网站')}</span>
                             </div>
                         </div>
 
