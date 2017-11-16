@@ -1,9 +1,10 @@
-使用手册： http://www.kancloud.cn/dayrui/finecms3 
-开发手册：http://www1.dayrui.com/dev-doc/
+使用手册：http://www.finecms.net/
+开发手册：https://codeigniter.org.cn/user_guide/
+
 
 运行环境：
 php5.3 - php7
-mysql5以上
+mysql5.0以上
 
 安装方法：
 访问http://网站/install.php
