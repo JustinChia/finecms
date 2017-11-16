@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * https://gitee.com/greenlaw
+ **/
 
 
 define('IS_ADMIN', TRUE); // 项目标识

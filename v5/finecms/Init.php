@@ -1,4 +1,7 @@
 <?php
+/**
+ * https://gitee.com/greenlaw
+ **/
 
 define('EXT', '.php'); // PHP文件扩展名
 define('SYSDIR', 'system'); // “系统文件夹”的名称
