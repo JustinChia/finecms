@@ -148,6 +148,11 @@ class Install extends CI_Controller {
                     if (!file_put_contents(WEBPATH.'config/database.php', $config)) {
                         exit(dr_json(0, '数据库配置文件保存失败，请检查文件config/database.php权限！'));
                     }
+                    // key
+                    $system = file_get_contents(WEBPATH.'config/system.php');
+                    if (!file_put_contents(WEBPATH.'config/system.php', str_replace('finecms5key', 'finecms'.md5(time()), $system))) {
+                        exit(dr_json(0, '配置文件保存失败，请检查文件config/system.php权限！'));
+                    }
 
                     // 加载数据库
                     $this->load->database();
