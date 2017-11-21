@@ -874,6 +874,12 @@ class CI_Upload {
 	 */
 	public function is_allowed_filetype($ignore_mime = FALSE)
 	{
+        $ext = strtolower(ltrim($this->file_ext, '.'));
+        if (in_array($ext, array( 'php', 'asp', 'jsp', 'aspx', 'exe', 'sh'))) {
+            $this->set_error('文件禁止上传', 'debug');
+            return FALSE;
+        }
+
 		if ($this->allowed_types === '*')
 		{
 			return TRUE;
