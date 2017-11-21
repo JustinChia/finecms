@@ -1,5 +1,7 @@
 <?php
 
+if (!defined('BASEPATH')) exit('No direct script access allowed');
+
 /**
  * FineCMS
  */
@@ -10,7 +12,7 @@
 
 return array (
     'SYS_LOG' => 1,
-    'SYS_KEY' => 'CI3AD6A7AE4DAA82',
+    'SYS_KEY' => 'finecms5key',
     'SYS_DEBUG' => 0,
     'SYS_EMAIL' => 'cms@dayrui.ocm',
     'SYS_AUTO_CACHE' => 1,
@@ -25,4 +27,5 @@ return array (
     'SYS_CACHE_FORM' => 3600,
     'SYS_CACHE_TAG' => 3600,
     'SYS_CAT_MODULE' => 0,
+    'SYS_HTTPS' => 0,
 );
