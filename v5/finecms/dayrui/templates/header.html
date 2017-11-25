@@ -101,53 +101,7 @@
                     $('.sp-choose, .noloading').click(function(){
                         top.$('.page-loading').remove();
                     });
-                    // 登录检测
-                    setInterval('dr_test_login()', 5000);
                 });
-                function dr_test_login() {
-                    $.get('{dr_url("api/login")}', function(html){
-                        if (html.indexOf("this_finecms_test") >= 0) {
-                            dr_login = 1;
-                        } else {
-                            if (dr_login == 1) {
-                                dr_login = 0;
-                                var throughBox = art.dialog.through;
-                                var win = $.dialog.top;
-                                throughBox({
-                                    content: html,
-                                    title: '{fc_lang("登录超时")}',
-                                    cancel: function() {
-                                        dr_login = 1;
-                                    },
-                                    ok: function() {
-                                        // 标示可以提交表单
-                                        win.$("#mark").val("0");
-                                        // 按钮返回验证表单函数
-                                        if (win.dr_form_check()) {
-                                            var _data = win.$("#myform").serialize();
-                                            // 将表单数据ajax提交验证
-                                            $.ajax({type: "POST",dataType:"json", url: '{dr_url("login/ajax")}' , data: _data,
-                                                success: function(data) {
-                                                    //验证成功
-                                                    if (data.status == 1) {
-                                                        dr_tips('{fc_lang("登录成功")}', 2, 1);
-                                                    } else {
-                                                        //验证失败
-                                                        dr_tips(data.code);
-                                                    }
-                                                },
-                                                error: function(HttpRequest, ajaxOptions, thrownError) {
-                                                    dr_alert(HttpRequest.responseText);
-                                                }
-                                            });
-                                        }
-                                        dr_login = 1;
-                                    }
-                                });
-                            }
-                        }
-                    });
-                }
     </script>
 </head>
 <body>
