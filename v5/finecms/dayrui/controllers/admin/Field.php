@@ -35,7 +35,7 @@ class Field extends M_Controller {
             $ismain = 1;
             // 表示共享栏目
             $this->name = '栏目字段';
-            $this->backuri = 'admin/category_share/index'; // 返回uri地址
+            $this->backuri = 'admin/category/index'; // 返回uri地址
             $this->cacheuri = 'category_share'; // 缓存文件标示名称
             $this->data['dirname'] = 'share';
             $this->func = 'category_info';
