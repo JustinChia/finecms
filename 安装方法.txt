@@ -3,8 +3,9 @@
 
 
 运行环境：
-php5.3 - php7
+php5.3 - php7+
 mysql5.0以上
+
 
 安装方法：
 访问http://网站/install.php
