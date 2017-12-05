@@ -22,7 +22,7 @@ class Search extends M_Controller {
 		$catid = (int)$get['catid'];
 		$_GET['page'] = $get['page'];
         $page = max(1, (int)$_GET['page']);
-		$get['keyword'] = str_replace(array('%', ' '), array('', '%'), urldecode($get['keyword']));
+		$get['keyword'] = dr_safe_replace(str_replace(array('%', ' '), array('', '%'), urldecode($get['keyword'])));
 		unset($get['c'], $get['m'], $get['id'], $get['page']);
 		if (!$get['mid']) {
             $this->msg(fc_lang('缺少mid参数'));
