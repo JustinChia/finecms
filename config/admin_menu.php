@@ -263,11 +263,6 @@ return array(
                         'icon' => 'fa fa-refresh',
                     ),
                     array(
-                        'name' => '插件商城',
-                        'uri' => 'home/cjonline',
-                        'icon' => 'fa fa-plug',
-                    ),
-                    array(
                         'name' => '使用文档',
                         'uri' => 'home/helponline',
                         'icon' => 'fa fa-book',
