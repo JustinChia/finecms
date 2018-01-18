@@ -86,7 +86,11 @@ class Template {
         $this->_filename = $_name;
 
         // 加载编译后的缓存文件
-        include $this->load_view_file($this->get_file_name($_name, $_dir));
+        $file = $this->get_file_name($_name, $_dir);
+        if (defined('SYS_DEBUG') && SYS_DEBUG) {
+            echo "<!--当前页面的模板文件是：$file （本代码只在调试模式下显示）-->".PHP_EOL;
+        }
+        include $this->load_view_file($file);
 
         // 消毁变量
         $this->_include_file = NULL;
