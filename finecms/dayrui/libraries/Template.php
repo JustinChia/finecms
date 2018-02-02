@@ -764,7 +764,7 @@ class Template {
                             return $this->_return($system['return'], '没有查询到内容', $sql, 0);
                         }
                         $sql.= ' LIMIT '.$pagesize * ($page - 1).','.$pagesize;
-                        $pages = $this->_get_pagination(str_replace('[page]', '{page}', urldecode($system['urlrule'])), $pagesize, $total);
+                        $pages = $this->_get_pagination($system['urlrule'], $pagesize, $total);
                     }
 
                     $data = $this->_query($sql, $system['site'], $system['cache']);
@@ -843,7 +843,6 @@ class Template {
 
                 if ($system['page'] && $system['urlrule']) {
                     $page = max(1, (int)$_GET['page']);
-                    $urlrule = str_replace('[page]', '{page}', urldecode($system['urlrule']));
                     $pagesize = (int) $system['pagesize'];
                     $pagesize = $pagesize ? $pagesize : 10;
                     $sql = "SELECT count(*) as c FROM $sql_from ".($sql_where ? "WHERE $sql_where" : "")." ORDER BY NULL";
@@ -854,7 +853,7 @@ class Template {
                         return $this->_return($system['return'], '没有查询到内容', $sql, 0);
                     }
                     $sql_limit = 'LIMIT '.$pagesize * ($page - 1).','.$pagesize;
-                    $pages = $this->_get_pagination($urlrule, $pagesize, $total);
+                    $pages = $this->_get_pagination($system['urlrule'], $pagesize, $total);
                 } elseif ($system['num']) {
                     $sql_limit = "LIMIT {$system['num']}";
                 }
@@ -929,7 +928,6 @@ class Template {
 
                 if ($system['page'] && $system['urlrule']) {
                     $page = max(1, (int)$_GET['page']);
-                    $urlrule = str_replace('[page]', '{page}', urldecode($system['urlrule']));
                     $pagesize = (int) $system['pagesize'];
                     $pagesize = $pagesize ? $pagesize : 10;
                     $sql = "SELECT count(*) as c FROM $sql_from ".($sql_where ? "WHERE $sql_where" : "")." ORDER BY NULL";
@@ -940,7 +938,7 @@ class Template {
                         return $this->_return($system['return'], '没有查询到内容', $sql, 0);
                     }
                     $sql_limit = 'LIMIT '.$pagesize * ($page - 1).','.$pagesize;
-                    $pages = $this->_get_pagination($urlrule, $pagesize, $total);
+                    $pages = $this->_get_pagination($system['urlrule'], $pagesize, $total);
                 } elseif ($system['num']) {
                     $sql_limit = "LIMIT {$system['num']}";
                 }
@@ -1007,17 +1005,16 @@ class Template {
 
                 if ($system['page'] && $system['urlrule']) { // 如存在分页条件才进行分页查询
                     $page = max(1, (int)$_GET['page']);
-                    $urlrule = str_replace('[page]', '{page}', urldecode($system['urlrule']));
                     $pagesize = (int) $system['pagesize'];
                     $pagesize = $pagesize ? $pagesize : 10;
                     $row = $this->_query("SELECT count(*) as c FROM $sql_from ".($sql_where ? "WHERE $sql_where" : "")." ORDER BY NULL", $system['site'], $system['cache'], FALSE);
                     $total = (int)$row['c'];
                     if (!$total) {
                         // 没有数据时返回空
-                        return $this->_return($system['return'], '没有查询到内容', $sql, 0);
+                        return $this->_return($system['return'], '没有查询到内容', "", 0);
                     }
                     $sql_limit = ' LIMIT '.$pagesize * ($page - 1).','.$pagesize;
-                    $pages = $this->_get_pagination(str_replace('[page]', '{page}', $urlrule), $pagesize, $total);
+                    $pages = $this->_get_pagination($system['urlrule'], $pagesize, $total);
                 } elseif ($system['num']) {
                     $sql_limit = "LIMIT {$system['num']}";
                 }
@@ -1172,7 +1169,7 @@ class Template {
                         $pagesize = $system['pagesize'] ? (int)$system['pagesize'] : (int)$category[$system['catid']]['setting']['template']['pagesize'];
                     }
                     if ($system['sbpage'] || !$urlrule){
-                        $urlrule = str_replace('[page]', '{page}', urldecode($system['urlrule']));
+                        $urlrule = $system['urlrule'];
                         $pagesize = (int)$system['pagesize'];
                     }
                     $pagesize = $pagesize ? $pagesize : 10;
@@ -1282,11 +1279,10 @@ class Template {
 
                 // 搜索分页
                 $page = max(1, (int)$_GET['page']);
-                $urlrule = str_replace('[page]', '{page}', urldecode($system['urlrule']));
                 $pagesize = (int)$system['pagesize'];
                 $pagesize = $pagesize ? $pagesize : 10;
                 $sql_limit = 'LIMIT '.$pagesize * ($page - 1).','.$pagesize;
-                $pages = $this->_get_pagination($urlrule, $pagesize, $total);
+                $pages = $this->_get_pagination($system['urlrule'], $pagesize, $total);
 
                 $sql = "SELECT ".$this->_get_select_field($system['field'] ? $system['field'] : '*')." FROM $sql_from WHERE $sql_where ORDER BY {$system['order']} $sql_limit";
                 $data = $this->_query($sql, $system['site'], $system['cache']);
@@ -1364,7 +1360,7 @@ class Template {
             $page = $this->pagination;
         }
 
-        $page['base_url'] = $url;
+        $page['base_url'] = str_replace(array('[page]', '%7Bpage%7D', '%5Bpage%5D', '%7bpage%7d', '%5bpage%5d'), '{page}', $url);
         $page['per_page'] = $pagesize;
         $page['total_rows'] = $total;
         $page['use_page_numbers'] = TRUE;

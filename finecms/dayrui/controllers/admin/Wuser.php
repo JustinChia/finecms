@@ -163,7 +163,7 @@ class Wuser extends M_Table {
                     $rs = $this->weixin_model->edit_user($uid, array(
                         'groupid' => (int)$u['groupid'],
                         'openid' => $u['openid'],
-                        'nickname' => dr_deal_emoji($u['nickname'], 0),
+                        'nickname' => $u['nickname'],
                         'sex' => $u['sex'],
                         'city' => $u['city'],
                         'country' => $u['country'],
