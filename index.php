@@ -11,6 +11,10 @@ function_exists('ini_set') && ini_set('display_errors', TRUE);
 function_exists('ini_set') && ini_set('memory_limit', '1024M');
 function_exists('set_time_limit') && set_time_limit(100);
 
+// 是否允许编辑后台模板
+define('IS_EDIT_TPL', 0);
+
+// 自定义程序路径
 define('FCPATH', dirname(__FILE__).'/finecms/');
 define('WEBPATH', dirname(__FILE__).'/');
 

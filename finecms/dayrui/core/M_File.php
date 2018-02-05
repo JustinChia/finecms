@@ -152,6 +152,9 @@ class M_File extends M_Controller {
 		!is_dir($path) && exit('<p style="padding:10px 20px 20px 20px">'.fc_lang('文件目录不存在').'</p>');
 		
 		if (IS_POST) {
+		    if (IS_EDIT_TPL == 0) {
+                exit(dr_json(0, fc_lang('系统禁止编辑模板（index.php中IS_EDIT_TPL设置为1表示开启编辑模板）'), 'file'));
+            }
 			$file = trim(str_replace(array('/', '\\', ';'), '', $this->input->post('file')), '/');
 			!$file && exit(dr_json(0, fc_lang('文件或者目录不存在'), 'file'));
 			substr_count($file, '.') > 1 && exit(dr_json(0, fc_lang('请确认否是有效的文件'), 'file'));
@@ -198,6 +201,11 @@ class M_File extends M_Controller {
         }
 		
 		if (IS_POST) {
+
+            if (IS_EDIT_TPL == 0) {
+                $this->admin_msg(fc_lang('系统禁止编辑模板（index.php中IS_EDIT_TPL设置为1表示开启编辑模板）'));
+            }
+
 			$code = $this->input->post('code');
 			file_put_contents($this->path.$file, $code);
             $this->system_log('修改文件：'.$this->path.$file); // 记录日志
@@ -220,6 +228,11 @@ class M_File extends M_Controller {
 	public function jie() {
 
         $this->_init();
+
+
+        if (IS_EDIT_TPL == 0) {
+            $this->admin_msg(fc_lang('系统禁止编辑模板（index.php中IS_EDIT_TPL设置为1表示开启编辑模板）'));
+        }
 
         $file = trim(str_replace(array('../', '\\', '..'), array('', '/'), $this->input->get('file',true)), '/');
 		!is_file($this->path.$file) && $this->admin_msg(fc_lang('文件不存在'));
@@ -244,6 +257,10 @@ class M_File extends M_Controller {
 	public function del() {
 
         $this->_init();
+
+        if (IS_EDIT_TPL == 0) {
+            exit(dr_json(0, fc_lang('系统禁止编辑模板（index.php中IS_EDIT_TPL设置为1表示开启编辑模板）'), 'file'));
+        }
 
         $file = trim(str_replace(array('../', '\\', '..'), array('', '/'), $this->input->get('file',true)), '/');
 		!$file && exit(dr_json(0, fc_lang('文件或者目录格式不正确')));
