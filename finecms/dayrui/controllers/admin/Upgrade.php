@@ -22,6 +22,19 @@ class Upgrade extends M_Controller {
         $this->template->display('upgrande.html');
     }
 
+    /**
+     * 程序管理
+     */
+    public function php7cms() {
+
+        $this->template->assign(array(
+            'menu' => $this->get_menu_v3(array(
+                fc_lang('升级PHP7CMS') => array('admin/upgrade/php7cms', 'refresh'),
+            )),
+        ));
+        $this->template->display('php7cms.html');
+    }
+
 // 版本列表
     public function vlist() {
 

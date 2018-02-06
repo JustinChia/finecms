@@ -39,6 +39,16 @@ return array(
                         'uri' => 'system/index',
                         'icon' => 'fa fa-calendar',
                     ),
+                    array(
+                        'name' => '升级版本',
+                        'uri' => 'upgrade/index',
+                        'icon' => 'fa fa-cloud',
+                    ),
+                    array(
+                        'name' => '升级PHP7CMS',
+                        'uri' => 'upgrade/php7cms',
+                        'icon' => 'fa fa-refresh',
+                    ),
                 )
             ),
 
@@ -179,6 +189,7 @@ return array(
 
         )
     ),
+
 
 
 
