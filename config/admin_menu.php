@@ -258,36 +258,5 @@ return array(
     ),
 
 
-    array(
-        'name' => '云服务',
-        'mark' => 'mycloud',
-        'icon' => 'fa fa-cloud',
-        'menu' => array(
-            array(
-                'name' => '云服务',
-                'mark' => 'mycloud-app',
-                'icon' => 'fa fa-cloud',
-                'menu' => array(
-                    array(
-                        'name' => '程序升级',
-                        'uri' => 'upgrade/index',
-                        'icon' => 'fa fa-refresh',
-                    ),
-                    array(
-                        'name' => '使用文档',
-                        'uri' => 'home/helponline',
-                        'icon' => 'fa fa-book',
-                    ),
-                    array(
-                        'name' => '我要提问',
-                        'url' => 'http://www.dayrui.com/index.php?s=member&app=bbs&c=home&m=add&catid=48',
-                        'icon' => 'fa fa-edit',
-                    ),
-                )
-            ),
-
-        )
-    ),
-
 
 );

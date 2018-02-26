@@ -36,7 +36,7 @@ class Dcache {
      * @return 	string
      */
     private function parse_cache_file($file_name) {
-        return $this->cache_dir.$file_name.'.cache.php';
+        return $this->cache_dir.$file_name.'.cache';
     }
 
     /**
