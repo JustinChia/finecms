@@ -13,6 +13,4 @@ FineCMS企业网站管理系统（简称企业版）是一款基于PHP+MySql+CI�
 http://www.finecms.net
 
 
-**在线演示**
 
-http://demo.finecms.net
