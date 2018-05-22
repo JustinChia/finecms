@@ -44,11 +44,6 @@ return array(
                         'uri' => 'upgrade/index',
                         'icon' => 'fa fa-cloud',
                     ),
-                    array(
-                        'name' => '升级PHP7CMS',
-                        'uri' => 'upgrade/php7cms',
-                        'icon' => 'fa fa-refresh',
-                    ),
                 )
             ),
 
@@ -195,35 +190,7 @@ return array(
 
 
 
-    array(
-        'name' => '模板',
-        'mark' => '',
-        'icon' => 'fa fa-html5',
-        'menu' => array(
-            array(
-                'name' => '网站模板',
-                'icon' => 'fa fa-folder',
-                'menu' => array(
-                    array(
-                        'name' => '电脑模板',
-                        'uri' => 'tpl/index',
-                        'icon' => 'fa fa-desktop',
-                    ),
-                    array(
-                        'name' => '手机模板',
-                        'uri' => 'tpl/mobile',
-                        'icon' => 'fa fa-mobile',
-                    ),
-                    array(
-                        'name' => '风格样式',
-                        'uri' => 'theme/index',
-                        'icon' => 'fa fa-css3',
-                    ),
-                )
-            ),
-
-        )
-    ),
+    
 
 
     array(
