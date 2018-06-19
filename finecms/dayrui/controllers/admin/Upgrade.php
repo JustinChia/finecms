@@ -26,7 +26,7 @@ class Upgrade extends M_Controller {
 	// 版本列表
     public function vlist() {
 
-        $data = dr_catcher_data('http://www.poscms.net/version.php?cms=finecms');
+        $data = dr_catcher_data('http://www.finecms.net/version.php');
 
         if (!$data) {
             exit('<p style="color:red;"> 暂时无法获取到服务器端版本信息 </p>');
@@ -45,7 +45,8 @@ class Upgrade extends M_Controller {
 
 
         echo('<p> 本网站程序更新时间为： '.DR_UPDATE.'</a></p>');
-        exit('<p> <a href="https://gitee.com/dayrui/finecms/" style="color:green;" target="_blank">服务器程序更新时间为： '.$data.'</a></p>');
+
+        exit('<p> <a href="https://www.finecms.net/bbs/" style="color:green;" target="_blank">服务器程序更新时间为： '.$data.'</a></p>');
 
 
     }

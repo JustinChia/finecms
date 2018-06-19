@@ -2,6 +2,6 @@
 
 return array(
 
-    'DR_UPDATE'		=> '2018.06.01',
-    'DR_VERSION'	=> '5.3.2',
+    'DR_UPDATE'		=> '2018.06.18',
+    'DR_VERSION'	=> '5.4.0',
 );
