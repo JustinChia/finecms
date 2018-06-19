@@ -14,3 +14,9 @@ http://www.finecms.net
 
 
 
+**官方论坛**
+
+http://www.finecms.net/bbs
+
+
+
