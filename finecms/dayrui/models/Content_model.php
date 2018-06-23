@@ -185,10 +185,10 @@ class Content_model extends M_Model {
         }
 
 
-
         // 修改之前挂钩点
         $data['edit'] = $_data;
-        $data[1]['hits'] = (int)$_data['hits'];
+        $data[1]['hits'] = (int)$data[1]['hits'];
+		
         $data[1]['comments'] = (int)$_data['comments'];
         $data[1]['favorites'] = (int)$_data['favorites'];
         unset($data['edit']);
